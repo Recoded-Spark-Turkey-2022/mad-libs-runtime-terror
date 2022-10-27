@@ -32,7 +32,7 @@ function parseStory(rawStory) {
 }
 
 /**
- * All your other JavaScript code goes here, inside the function. Don't worry about
+ * All your other JavaScript code goes here, inside the function. Don't worry about helin
  * the `then` and `async` syntax for now.
  * 
  * You'll want to use the results of parseStory() to display the story on the page.
