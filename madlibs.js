@@ -35,10 +35,9 @@
     const txt=rawStory.split(" ");
     console.log(txt)
     const regex1 = /\Wn\W/;
-  const regex2 = /\Wv\W/;
-  const regex3 = /\Wa\W/;
+    const regex2 = /\Wv\W/;
+    const regex3 = /\Wa\W/;
 
-    // console.log(result);
 
     for(let i=0; i<txt.length; i++){
       if(txt[i].match(regex1)){
@@ -64,18 +63,50 @@
 
 
     }
-    return arr;
-  // return {}; // This line is currently wrong :)
+
+     return arr;
+   // This line is currently wrong :)
 }
 
 
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- *
- * You'll want to use the results of parseStory() to display the story on the page.
- */
 getRawStory().then(parseStory).then((processedStory) => {
+
+
+  processedStory.map((story) => {
+    const Edit = document.querySelector('.madLibsEdit') //selecting the madLibsEdit class and assigging it to Edit
+    const preview = document.querySelector('.madLibsPreview')//selecting the madLibsPreview class and assigging it to preview
+
+    function createFirstStory(x, input){ //
+      x.innerHTML +=`<span> <input type='text' name='type' value='' placeholder=${input} maxlength="20"> </span>`
+    }
+    function createSecondStory(x){
+      x.innerHTML +=`<span> <input type='text' name='type' value=''  readonly> </span>`
+    }
+
+    if(story.pos){ // if you find a pos in the story call create functions
+      createFirstStory(Edit,  story.pos);
+      createSecondStory(preview,  story.pos)
+    }else{
+      Edit.innerHTML += `${story.word} `
+      preview.innerHTML += `${story.word} `
+          }
+
+      document.querySelectorAll(`.madLibsEdit input`).forEach((input,index) => {
+        input.addEventListener('input', y => { document.querySelectorAll('.madLibsPreview input')[index].value = y.target.value
+              })
+          })
+  })
+
   console.log(processedStory);
+  addMusic();
+
+
+  //  processedStory(story)
+
+
 });
+
+
+
+
 
