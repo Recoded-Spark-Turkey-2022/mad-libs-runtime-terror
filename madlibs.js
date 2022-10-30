@@ -35,10 +35,10 @@
     // Your code here.
     const arr=[];
     const txt=rawStory.split(" ");
-    console.log(txt)
+    //console.log(txt)
     const regex1 = /\Wn\W/;
-  const regex2 = /\Wv\W/;
-  const regex3 = /\Wa\W/;
+    const regex2 = /\Wv\W/;
+    const regex3 = /\Wa\W/;
 
     // console.log(result);
 
@@ -75,11 +75,12 @@
 //have inputs in it
 function processedStory(story) {
   const edit=document.querySelector(".madLibsEdit")
-  
+  const preview=document.querySelector(".madLibsPreview")
+  const arr=[];
 
-  //returns story as objects from parseStory() and 
-  //puts pos default inside input boxes while 
-  //returns the rest of the raw story inside "span"
+    //returns story as objects from parseStory() and 
+    //puts pos as default inside input boxes while 
+    //returns the rest of the raw story inside "span"
     for (let i = 0; i < story.length; i++) {
       const span=document.createElement("span");
       edit.appendChild(span);
@@ -89,71 +90,29 @@ function processedStory(story) {
         const input= document.createElement("input");
         span.append(input);
         input.defaultValue=story[i].pos;
-        console.log(pos)
+        arr.push(span.innerHTML);
+        //console.log(pos)
       }else{
         span.innerText =story[i].word + " ";
-        console.log(word)
+        arr.push(span.innerHTML);
+        //console.log(word)
+      }
     }
-  }
 
+  //console.log(arr)
+            
+      const reducer=(accumulator, item)=>{
+        return accumulator + item
+      }
+      let total= arr.reduce(reducer, "")
+      preview.append(total)
+      //console.log(total)
 
 }
 
-const preview=document.querySelector(".madLibsPreview")
-preview.addEventListener("change", processedStory)
-  //change: Event that is fired for input, select and 
-  //textarea elements when an alteration to the 
-  //element’s value is done by the user.
 
 
 
-
-/*
-function editContainer(input) {
-  const inputElement=document.createElement("input")
-  inputElement.innerText=input.value
-  const divElement=document.createElement("div")
-  divElement.appendChild(inputElement)
-  
-  return divElement;
-}
-//array map methodu aç phase1 aktif kopyalayan kodu bul dosyadan furkanın kodu aç
-function editStory() {
-  const cb=parseStory();
-  for (const key in object) {
-    if (Object.hasOwnProperty.call(object, key)) {
-      const element = object[key];
-      
-    }
-  }
-}
-
-*/
-  /*
-  story.forEach(element => {
-    const input= document.createElement("input")
-    edit.append(input) 
-    console.log(element)
-  });
-  */
- /*
-  for(const obj in story){
-    console.log(obj, story[obj])
-  }
-  */
-/*
-  for (let i = 0; i < story.length; i++) {
-    const {word, pos} = story[i];
-    if(pos){
-      const input= document.createElement("input")
-      edit.append(input) 
-      console.log(story)
-    }else{
-      //return story[word]
-      //console.log(story)
-    }
-  }
-  */
 
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
