@@ -4,10 +4,13 @@
 
  
 html{
-    
-    height: 115%;
+    min-width: 20%;
+    max-width: 120%;
+    max-height: 120%;
+    min-height: 20%;
     background-image: url("https://www.hdwallpapers.in/download/halloween_5_4k_8k_hd-5120x2880.jpg");
-    background-size: 100% 100%;
+    background-size:cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
