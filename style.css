@@ -1,3 +1,4 @@
+
 /**
  * Your CSS goes here.
  */
@@ -18,6 +19,7 @@ html{
 
 
 body{
+
     display: flex;
     justify-content: space-between;
     height: 100%;
@@ -59,10 +61,12 @@ font-family: 'Noto Sans Mono', monospace;
     opacity: unset;
     overflow-y: auto;
     padding: 5%;
+
 }
 
 
 h1 {
+
     top: 20px;
     display: flex;
     align-items: center;
@@ -97,3 +101,4 @@ input:hover{
     transition: background-color 0.5s ease;
     
 }
+

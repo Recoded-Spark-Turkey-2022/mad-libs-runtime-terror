@@ -40,7 +40,6 @@
     const regex2 = /\Wv\W/;
     const regex3 = /\Wa\W/;
 
-    // console.log(result);
 
     for(let i=0; i<txt.length; i++){
       if(txt[i].match(regex1)){
@@ -66,60 +65,52 @@
 
 
     }
-    return arr;
-  // return {}; // This line is currently wrong :)
+
+     return arr;
+   // This line is currently wrong :)
 }
 
 
-//selects html edit class and shows the story that 
-//have inputs in it
-function processedStory(story) {
-  const edit=document.querySelector(".madLibsEdit")
-  const preview=document.querySelector(".madLibsPreview")
-  const arr=[];
 
-    //returns story as objects from parseStory() and 
-    //puts pos as default inside input boxes while 
-    //returns the rest of the raw story inside "span"
-    for (let i = 0; i < story.length; i++) {
-      const span=document.createElement("span");
-      edit.appendChild(span);
-      const {word, pos} = story[i];
-      
-      if(pos){
-        const input= document.createElement("input");
-        span.append(input);
-        input.defaultValue=story[i].pos;
-        arr.push(span.innerHTML);
-        //console.log(pos)
-      }else{
-        span.innerText =story[i].word + " ";
-        arr.push(span.innerHTML);
-        //console.log(word)
-      }
+getRawStory().then(parseStory).then((processedStory) => {
+
+
+  processedStory.map((story) => {
+    const Edit = document.querySelector('.madLibsEdit') //selecting the madLibsEdit class and assigging it to Edit
+    const preview = document.querySelector('.madLibsPreview')//selecting the madLibsPreview class and assigging it to preview
+
+    function createFirstStory(x, input){ //
+      x.innerHTML +=`<span> <input type='text' name='type' value='' placeholder=${input} maxlength="20"> </span>`
+    }
+    function createSecondStory(x){
+      x.innerHTML +=`<span> <input type='text' name='type' value=''  readonly> </span>`
     }
 
-  //console.log(arr)
-            
-      const reducer=(accumulator, item)=>{
-        return accumulator + item
-      }
-      let total= arr.reduce(reducer, "")
-      preview.append(total)
-      //console.log(total)
+    if(story.pos){ // if you find a pos in the story call create functions
+      createFirstStory(Edit,  story.pos);
+      createSecondStory(preview,  story.pos)
+    }else{
+      Edit.innerHTML += `${story.word} `
+      preview.innerHTML += `${story.word} `
+          }
 
-}
+      document.querySelectorAll(`.madLibsEdit input`).forEach((input,index) => {
+        input.addEventListener('input', y => { document.querySelectorAll('.madLibsPreview input')[index].value = y.target.value
+              })
+          })
+  })
+
+  console.log(processedStory);
+  addMusic();
 
 
+  //  processedStory(story)
 
 
-
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- *
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-getRawStory().then(parseStory).then((story) => {
-  processedStory(story);
 });
+
+
+
+
+
+
