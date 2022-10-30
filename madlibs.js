@@ -29,11 +29,13 @@
 
 
 
+//takes txt from getRawStory() and puts it inside an array of objects
+//with a for loop
   function parseStory(rawStory) {
     // Your code here.
     const arr=[];
     const txt=rawStory.split(" ");
-    console.log(txt)
+    //console.log(txt)
     const regex1 = /\Wn\W/;
     const regex2 = /\Wv\W/;
     const regex3 = /\Wa\W/;
@@ -67,6 +69,7 @@
      return arr;
    // This line is currently wrong :)
 }
+
 
 
 getRawStory().then(parseStory).then((processedStory) => {
@@ -105,6 +108,7 @@ getRawStory().then(parseStory).then((processedStory) => {
 
 
 });
+
 
 
 
