@@ -1,29 +1,27 @@
-
 /**
  * Your CSS goes here.
  */
 
  
 html{
-    
-    height: 100%;
-    background-image: url("https://cdn.pixabay.com/photo/2022/10/02/19/16/halloween-7494260_960_720.jpg");
-    background-size: 100vw auto;
-    background-size: 100% 100%;
+    min-width: 20%;
+    max-width: 120%;
+    max-height: 120%;
+    min-height: 20%;
+    background-image: url("https://www.hdwallpapers.in/download/halloween_5_4k_8k_hd-5120x2880.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer /* etc*/;
 
 }
 
 
 body{
-
     display: flex;
     justify-content: space-between;
     height: 100%;
-    overflow-y: hidden;
    /**  background: rgb(131,234,241);
    /** background: linear-gradient(135deg, #0D324D, #7F5A83 99%); */
   
@@ -33,40 +31,23 @@ font-family: 'Noto Sans Mono', monospace;
     
 }
 
-.madLibsEdit{
+.madLibsEdit , .madLibsPreview{
     margin: 1%;
     min-width: 60vw;
     max-width: 40vw;
     min-height: 20vh;
-    max-height: 40vh;
+    max-height: 60vh;
     padding: 30px 0;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50px;
-    box-shadow: rgb(255, 172, 63) 0px 7px 29px 0px;
-    overflow-y: auto;
+    box-shadow: rgba(255, 172, 63, 0.808) 0px 7px 29px 0px;
     padding: 5%;
     
 }
 
-.madLibsPreview{
-    margin: 1%;
-    min-width: 60vw;
-    max-width: 40vw;
-    min-height: 20vh;
-    max-height: 40vh;
-    padding: 30px 0;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50px;
-    box-shadow: rgb(255, 172, 63) 0px 7px 29px 0px;
-    opacity: unset;
-    overflow-y: auto;
-    padding: 5%;
-
-}
 
 
 h1 {
-
     top: 20px;
     display: flex;
     align-items: center;
@@ -77,10 +58,9 @@ h1 {
     max-width: 40vw;
     min-height: 0.5vh;
     font-size: 45px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 30px;
-    box-shadow: rgb(255, 172, 63) 0px 7px 29px 0px;
-    overflow-y: auto;
+    box-shadow: rgba(255, 172, 63, 0.808) 0px 7px 29px 0px;
     padding: 2%;
 }
 
@@ -101,4 +81,3 @@ input:hover{
     transition: background-color 0.5s ease;
     
 }
-
