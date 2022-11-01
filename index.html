@@ -26,6 +26,19 @@
       <script src="do-not-touch.js"></script>
       <script src="madlibs.js"></script>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+    
+        setTimeout(() => {
+          console.log("playing test sound");
+        let test_sound = new Audio('Halloween_Symphony_HalloweenMusic(getmp3.pro).mp3');
+         test_sound.play().catch(() => {
+        test_sound.play()
+         });
+        }, 3000)
+      })
+    
+    </script>
 
   </body>
 </html>
