@@ -101,7 +101,8 @@ getRawStory().then(parseStory).then((processedStory)=>{
       element.style.backgroundColor="rgba(255, 99, 71, 0)"; 
       element.style.borderStyle="none"; 
       element.style.fontFamily="Noto Sans Mono, monospace"
-      element.style.fontSize="16px"       
+      element.style.fontSize="16px"
+      // element.style.width="min-content"       
     })
     element.addEventListener("keyup", (e)=>{    //Hotkeys
       if(e.key === "Enter"){
