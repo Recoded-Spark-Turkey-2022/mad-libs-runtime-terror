@@ -9,8 +9,9 @@ html{
     max-height: 120%;
     min-height: 20%;
     background-image: url("https://www.hdwallpapers.in/download/halloween_5_4k_8k_hd-5120x2880.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat; background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,4 +81,16 @@ input:hover{
     background-color: rgb(248, 211, 143); /*Red*/
     transition: background-color 0.5s ease;
     
+}
+
+
+@media only screen and (max-width: 1200px){
+    background-position: center top, center bottom;
+    /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+	/*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px){
+	/*Small smartphones [325px -> 425px]*/
 }
