@@ -93,13 +93,17 @@ getRawStory().then(parseStory).then((processedStory)=>{
     }
     allInputs = document.querySelectorAll("input");  
   });
-}).then(()=>{    //this .then used because when tried to use eventListeners inside processedStory, js said that it can not reach to fetch (to texts accordingly, I guess)
-  allInputs.forEach((element, index) => {    //forEach here takes indexes of processedStory in this sense; 
-    element.addEventListener("input",()=>{    //for every index, it looks for input movements from client(user),
-      let span = document.querySelector(`.input${index+1}`);    //picks input classes with indexes we had in line 88/89 looks them one by one starting from i=0  
-      span.innerHTML = element.value+" ";        //and gives the value has been added from user with a blank space so words can be seperated when user writes
+}).then(()=>{   
+  allInputs.forEach((element, index) => {     //forEach here takes indexes of processedStory in this sense; 
+    element.addEventListener("input",()=>{     //for every index, it looks for input movements from client(user),
+      let span = document.querySelector(`.input${index+1}`);     //picks input classes with indexes we had in line 88
+      span.innerHTML = element.value+" ";      //and gives the value has been added from user
+      element.style.backgroundColor="rgba(255, 99, 71, 0)"; 
+      element.style.borderStyle="none"; 
+      element.style.fontFamily="Noto Sans Mono, monospace"
+      element.style.fontSize="16px"       
     })
-    element.addEventListener("keyup", (e)=>{    //Hotkeys: When the user presses Enter in an input, it should move the cursor to the next input in the story.
+    element.addEventListener("keyup", (e)=>{    //Hotkeys
       if(e.key === "Enter"){
         if(index+1 === allInputs.length){
           allInputs[0].focus();
