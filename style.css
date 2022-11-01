@@ -20,6 +20,7 @@ html{
 
 
 body{
+    margin: 7%;
     height: 100%;
    /**  background: rgb(131,234,241);
    /** background: linear-gradient(135deg, #0D324D, #7F5A83 99%); */
@@ -42,7 +43,6 @@ font-family: 'Noto Sans Mono', monospace;
 
 
 h1 {
-    top: 20px;
     display: flex;
     justify-content: center;
     font-family: 'Creepster', cursive;
@@ -76,7 +76,10 @@ input:hover{
 }
 
 @media only screen and (max-width: 1200px){
-  
+    body{
+        margin: 10%;
+    }
+
     /*Tablets [601px -> 1200px]*/
 }
 @media only screen and (max-width: 650px){
